@@ -1,0 +1,46 @@
+# ref https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
+image: openjdk:8
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - gradle
+        script:
+          - bash ./gradlew build -x test
+
+    - step:
+        name: Linting
+        script:
+          - bash make lint
+
+    - step:
+        name: Run tests
+        script:
+          - bash ./gradlew test
+
+  pull-requests:
+    '**':
+      - step:
+          caches:
+            - gradle
+          script:
+            - bash ./gradlew build -x test
+
+      - step:
+          name: Run tests
+          script:
+            - bash ./gradlew test
+
+  branches:
+    main:
+      - step:
+          caches:
+            - gradle
+          script:
+            - bash ./gradlew build -x test
+
+      - step:
+          name: Run tests
+          script:
+            - bash ./gradlew test
