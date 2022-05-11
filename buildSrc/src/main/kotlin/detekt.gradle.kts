@@ -1,4 +1,5 @@
 import io.gitlab.arturbosch.detekt.Detekt
+
 // Detekt Linting
 val analysisDir = file(projectDir)
 val configFile = file("$rootDir/conf/linting/detekt.yml")
@@ -9,6 +10,7 @@ val resourceFiles = "**/resources/**"
 val buildFiles = "**/build/**"
 
 val detektFormat by tasks.registering(Detekt::class) {
+    group = "Linting"
     description = "Formats whole project."
     parallel = true
     disableDefaultRuleSets = true
@@ -29,6 +31,7 @@ val detektFormat by tasks.registering(Detekt::class) {
 }
 
 val detektAll by tasks.registering(Detekt::class) {
+    group = "Linting"
     description = "Runs the whole project at once."
     parallel = true
     buildUponDefaultConfig = true
@@ -45,6 +48,8 @@ val detektAll by tasks.registering(Detekt::class) {
     }
 }
 
-tasks.getByName<DefaultTask>("check") {
-    dependsOn.add(detektAll)
+// We install the hook at the first occasion
+afterEvaluate {
+    // We install the hook at the first occasion
+    tasks["check"].dependsOn.add(detektAll)
 }

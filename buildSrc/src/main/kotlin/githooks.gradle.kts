@@ -28,6 +28,7 @@ val installGitHooks by tasks.registering(Exec::class) {
     }
 }
 
+// We install the hook at the first occasion
 afterEvaluate {
     // We install the hook at the first occasion
     tasks["clean"].dependsOn.add(installGitHooks)
