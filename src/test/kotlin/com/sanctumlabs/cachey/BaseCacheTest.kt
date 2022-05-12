@@ -30,7 +30,7 @@ internal abstract class BaseCacheTest {
     }
 
     @Test
-    fun `Should remove entry`() {
+    open fun `Should remove entry`() {
         assertNotNull("value at key 1 should not be null", cache[1])
 
         cache.remove(1)
