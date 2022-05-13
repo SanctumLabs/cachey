@@ -1,6 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import java.net.URI
+
+group = Meta.GROUP
 
 buildscript {
     repositories {
@@ -26,14 +29,17 @@ plugins {
     kotlin("jvm")
 }
 
-group = Meta.GROUP
+apply(plugin = Plugins.Detekt.plugin)
 
 repositories {
     mavenCentral()
     mavenLocal()
+
     maven {
         url = uri("https://jitpack.io")
+        url = URI.create("https://plugins.gradle.org/m2/")
     }
+
     flatDir {
         dirs("libs")
     }
@@ -101,14 +107,12 @@ tasks {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8", Versions.KOTLIN))
+
     testImplementation(Dependencies.Kotlin.testJunit)
     testRuntimeOnly(Dependencies.Kotlin.reflect)
-
     testImplementation(Dependencies.Test.mockK)
-
     testImplementation(Dependencies.Test.Spek.dslJvm)
     testImplementation(Dependencies.Test.Spek.runnerJunit5)
-
     testImplementation(Dependencies.Test.Jupiter.api)
     testImplementation(Dependencies.Test.Jupiter.engine)
     testImplementation(Dependencies.Test.Jupiter.vintageEngine)

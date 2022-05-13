@@ -1,6 +1,4 @@
 object Plugins {
-    const val JAVA = "java"
-    const val KOTLIN = "kotlin"
 
     object Jetbrains {
         const val gradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}"
@@ -16,7 +14,7 @@ object Plugins {
     }
 
     object Detekt {
-        const val version = "1.9.1"
+        const val version = "1.20.0"
         const val plugin = "io.gitlab.arturbosch.detekt"
         const val gradle = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin"
         const val formatting = "io.gitlab.arturbosch.detekt:detekt-formatting"
