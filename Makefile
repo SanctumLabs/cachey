@@ -13,6 +13,6 @@ lint:
 
 build:
 	@echo "Building application"
-	./gradlew build
+	./gradlew build -x test
 
 all: install lint test
