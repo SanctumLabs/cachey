@@ -18,7 +18,6 @@ val detektFormat by tasks.registering(Detekt::class) {
     autoCorrect = true
     setSource(analysisDir)
     include(kotlinFiles)
-    //include(kotlinScriptFiles)
     exclude(resourceFiles)
     exclude(buildFiles)
     config.setFrom(listOf(configFile))
@@ -37,7 +36,6 @@ val detektAll by tasks.registering(Detekt::class) {
     buildUponDefaultConfig = true
     setSource(analysisDir)
     include(kotlinFiles)
-    //include(kotlinScriptFiles)
     exclude(resourceFiles)
     exclude(buildFiles)
     config.setFrom(listOf(configFile))

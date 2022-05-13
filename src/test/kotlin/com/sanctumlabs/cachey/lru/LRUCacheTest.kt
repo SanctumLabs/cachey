@@ -2,9 +2,11 @@ package com.sanctumlabs.cachey.lru
 
 import com.sanctumlabs.cachey.BaseCacheTest
 import com.sanctumlabs.cachey.perpetual.PerpetualCache
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
-import java.util.*
+import java.util.Random
 
 internal class LRUCacheTest : BaseCacheTest() {
     init {
