@@ -30,7 +30,7 @@ internal class FifoCacheTest : BaseCacheTest() {
     }
 
     @Test
-    fun `should remove entry`() {
+    override fun `Should remove entry`() {
         assertNotNull(cache[69])
         cache.remove(69)
         assertNull(cache[69])
