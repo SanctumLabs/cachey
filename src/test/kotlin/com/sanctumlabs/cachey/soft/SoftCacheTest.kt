@@ -20,6 +20,8 @@ internal class SoftCacheTest : BaseCacheTest() {
         for (i in 0 until size) {
             cache[i] = ByteArray(ONE_MEGABYTE)
         }
+
+        @Suppress("ExplicitGarbageCollectionCall")
         System.gc()
         assertTrue { cache.size < size }
     }

@@ -21,6 +21,7 @@ internal class WeakCacheTest : BaseCacheTest() {
             cache[i] = ByteArray(ONE_MEGABYTE)
         }
 
+        @Suppress("ExplicitGarbageCollectionCall")
         System.gc()
         assertTrue {
             cache.size < size

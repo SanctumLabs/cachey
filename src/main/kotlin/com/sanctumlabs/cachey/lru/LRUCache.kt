@@ -8,7 +8,7 @@ import com.sanctumlabs.cachey.GenericCache
 class LRUCache<K, V>(private val cache: GenericCache<K, V>, private val maximumSize: Int = DEFAULT_SIZE) :
     GenericCache<K, V> by cache {
 
-    private val keyMap = object : LinkedHashMap<K, Boolean>(maximumSize, 0.75f, true) {
+    private val keyMap = object : LinkedHashMap<K, Boolean>(maximumSize, LOAD_FACTOR, true) {
         override fun removeEldestEntry(eldest: MutableMap.MutableEntry<K, Boolean>): Boolean {
             val hasTooManyCachedItems = size > maximumSize
             if (hasTooManyCachedItems) {

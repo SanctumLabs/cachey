@@ -7,6 +7,7 @@ import kotlin.test.DefaultAsserter.assertNotNull
 import kotlin.test.DefaultAsserter.assertNull
 import kotlin.test.DefaultAsserter.assertTrue
 
+@Suppress("UnnecessaryAbstractClass")
 internal abstract class BaseCacheTest {
     protected lateinit var cache: GenericCache<Any, Any>
 
