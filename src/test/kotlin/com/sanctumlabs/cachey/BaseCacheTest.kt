@@ -8,7 +8,7 @@ import kotlin.test.DefaultAsserter.assertNull
 import kotlin.test.DefaultAsserter.assertTrue
 
 internal abstract class BaseCacheTest {
-    protected lateinit var cache: Cache<Any, Any>
+    protected lateinit var cache: GenericCache<Any, Any>
 
     @BeforeEach
     fun setUp() {

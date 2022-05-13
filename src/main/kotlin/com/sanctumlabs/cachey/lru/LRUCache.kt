@@ -1,12 +1,12 @@
 package com.sanctumlabs.cachey.lru
 
-import com.sanctumlabs.cachey.Cache
+import com.sanctumlabs.cachey.GenericCache
 
 /**
  * [LRUCache] flushes items that are **Least Recently Used** and keeps at most [maximumSize] items
  */
-class LRUCache<K, V>(private val cache: Cache<K, V>, private val maximumSize: Int = DEFAULT_SIZE) :
-    Cache<K, V> by cache {
+class LRUCache<K, V>(private val cache: GenericCache<K, V>, private val maximumSize: Int = DEFAULT_SIZE) :
+    GenericCache<K, V> by cache {
 
     private val keyMap = object : LinkedHashMap<K, Boolean>(maximumSize, 0.75f, true) {
         override fun removeEldestEntry(eldest: MutableMap.MutableEntry<K, Boolean>): Boolean {

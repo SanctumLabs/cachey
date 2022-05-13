@@ -1,15 +1,16 @@
 package com.sanctumlabs.cachey.expirable
 
 import com.sanctumlabs.cachey.Cache
+import com.sanctumlabs.cachey.GenericCache
 import java.util.concurrent.TimeUnit
 
 /**
  * [ExpirableCache] is a [Cache] that automatically expires entries after a given amount of time.
  */
 class ExpirableCache<K, V>(
-    private val delegate: Cache<K, V>,
+    private val delegate: GenericCache<K, V>,
     private val flushInterval: Long = TimeUnit.MINUTES.toMillis(1)
-) : Cache<K, V> by delegate {
+) : GenericCache<K, V> by delegate {
     private var lastFlushTime = System.nanoTime()
 
     override val size: Int

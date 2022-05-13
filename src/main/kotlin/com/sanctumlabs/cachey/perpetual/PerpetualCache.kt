@@ -1,8 +1,8 @@
 package com.sanctumlabs.cachey.perpetual
 
-import com.sanctumlabs.cachey.Cache
+import com.sanctumlabs.cachey.GenericCache
 
-class PerpetualCache<K, V> : Cache<K, V> {
+class PerpetualCache<K, V> : GenericCache<K, V> {
     private val cache = HashMap<K, V>()
 
     override val size: Int

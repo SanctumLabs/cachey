@@ -1,12 +1,12 @@
 package com.sanctumlabs.cachey.fifo
 
-import com.sanctumlabs.cachey.Cache
+import com.sanctumlabs.cachey.GenericCache
 
 /**
  * [FifoCache] caches at most [maximumSize] items that are recently [set]
  */
-class FifoCache<K, V>(private val cache: Cache<K, V>, private val maximumSize: Int = DEFAULT_SIZE) :
-    Cache<K, V> by cache {
+class FifoCache<K, V>(private val cache: GenericCache<K, V>, private val maximumSize: Int = DEFAULT_SIZE) :
+    GenericCache<K, V> by cache {
 
     private val keyMap = object : LinkedHashMap<K, Boolean>(maximumSize, 0.75f) {
         override fun removeEldestEntry(eldest: MutableMap.MutableEntry<K, Boolean>): Boolean {
