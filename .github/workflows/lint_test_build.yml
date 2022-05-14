@@ -92,7 +92,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build
-          path: build/libs/cachey.jar
+          path: build/libs
 
       - name: Cleanup Gradle Cache
         # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
