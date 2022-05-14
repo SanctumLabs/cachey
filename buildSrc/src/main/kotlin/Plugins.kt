@@ -15,13 +15,12 @@ object Plugins {
 
     object Detekt {
         const val version = "1.20.0"
-        const val plugin = "io.gitlab.arturbosch.detekt"
+        const val core = "io.gitlab.arturbosch.detekt"
         const val gradle = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin"
         const val formatting = "io.gitlab.arturbosch.detekt:detekt-formatting"
     }
 
-    object SonarQube {
-        const val version = "3.3"
-        const val plugin = "org.sonarqube"
+    object Maven {
+        const val publish = "maven-publish"
     }
 }

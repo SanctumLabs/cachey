@@ -27,9 +27,10 @@ plugins {
     githooks
     id(Plugins.Jacoco.plugin)
     kotlin("jvm")
+    id(Plugins.Maven.publish)
 }
 
-apply(plugin = Plugins.Detekt.plugin)
+apply(plugin = Plugins.Detekt.core)
 
 repositories {
     mavenCentral()
@@ -51,6 +52,29 @@ configure<JavaPluginExtension> {
 
 configure<JacocoPluginExtension> {
     toolVersion = Plugins.Jacoco.version
+}
+
+configure<PublishingExtension> {
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url = uri("https://maven.pkg.github.com/sanctumlabs/cachey")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GH_RELEASE_TOKEN")
+            }
+        }
+
+    // uncomment when we have a public repository
+//        maven {
+//            name = "OSSRH"
+//            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+//            credentials {
+//                username = System.getenv("MAVEN_USERNAME")
+//                password = System.getenv("MAVEN_PASSWORD")
+//            }
+//        }
+    }
 }
 
 tasks {
