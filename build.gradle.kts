@@ -65,7 +65,7 @@ configure<PublishingExtension> {
             }
         }
 
-    // uncomment when we have a public repository
+        // uncomment when we have a public repository
 //        maven {
 //            name = "OSSRH"
 //            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
@@ -74,6 +74,12 @@ configure<PublishingExtension> {
 //                password = System.getenv("MAVEN_PASSWORD")
 //            }
 //        }
+    }
+
+    publications {
+        register<MavenPublication>("gpr") {
+            from(components["java"])
+        }
     }
 }
 
