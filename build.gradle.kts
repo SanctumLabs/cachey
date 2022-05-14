@@ -61,7 +61,7 @@ configure<PublishingExtension> {
             url = uri("https://maven.pkg.github.com/sanctumlabs/cachey")
             credentials {
                 username = System.getenv("GH_RELEASE_ACTOR")
-                password = System.getenv("GH_RELEASE_TOKEN")
+                password = System.getenv("GH_PACKAGE_TOKEN")
             }
         }
 
