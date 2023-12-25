@@ -17,5 +17,5 @@ repositories {
 
 dependencies {
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.4")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
 }
